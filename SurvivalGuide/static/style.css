@@ -1,0 +1,148 @@
+:root {
+    --bg-color: #f9fafb;
+    --text-color: #111827;
+    --accent-color: #4b5563;
+    --box-bg: #ffffff;
+    --border-color: #d1d5db;
+    --success-color: #16a34a;
+    --error-color: #dc2626;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+header h1 {
+    color: var(--accent-color);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.level {
+    background-color: var(--box-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.level.locked {
+    opacity: 0.5;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+.level h2 {
+    color: var(--accent-color);
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.content-box {
+    margin-bottom: 2rem;
+}
+
+.questions-box {
+    background-color: rgba(0,0,0,0.03);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+.question {
+    margin-bottom: 1.5rem;
+}
+
+.question p {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.btn-check {
+    background-color: var(--accent-color);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.btn-check:hover {
+    background-color: #0284c7;
+}
+
+.error-msg {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    min-height: 1.5em;
+}
+
+.success-msg {
+    color: var(--success-color);
+}
+
+.commitment-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--success-color);
+    border-radius: 4px;
+    background-color: rgba(34, 197, 94, 0.1);
+}
+
+.commitment-box.hidden {
+    display: none;
+}
+
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: var(--accent-color);
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.styled-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}

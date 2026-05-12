@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura de Texto: Supervivencia Académica</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Aventura de Texto</h1>
+            <p>Sobrevive a la materia avanzando por las 4 áreas. Responde correctamente para demostrar tu conocimiento.
+            </p>
+        </header>
+
+        <main id="game-container">
+            <!-- Sección 1: La Cámara de las Reglas -->
+            <section id="section-1" class="level active">
+                <h2>1. La Cámara de las Reglas</h2>
+                <div class="content-box">
+                    <p>Has entrado a la Cámara de las Reglas. Las normas de supervivencia aquí son estrictas:</p>
+                    <ul>
+                        <li>Respeto.</li>
+                        <li>Importante participación activa en orden.</li>
+                        <li>No entregar trabajos incompletos.</li>
+                        <li>No se aplican exámenes fuera de tiempo.</li>
+                        <li>Plagio de trabajos = 0 para todos.</li>
+                        <li><strong>3 faltas = Final del parcial.</strong></li>
+                        <li><strong>Calificación Máxima en final = 8.</strong></li>
+                    </ul>
+                </div>
+
+                <div class="questions-box">
+                    <h3>Reto del Guardián</h3>
+                    <div class="question" id="q1-1">
+                        <p>1. ¿Cuál es la consecuencia de tener 3 faltas?</p>
+                        <label><input type="radio" name="q1-1" value="a"> A) Se reprueba el semestre</label>
+                        <label><input type="radio" name="q1-1" value="b"> B) Te vas a Final del parcial</label>
+                        <label><input type="radio" name="q1-1" value="c"> C) Pierdes derecho a examen</label>
+                    </div>
+                    <div class="question" id="q1-2">
+                        <p>2. ¿Cuál es la calificación máxima si te vas a examen final?</p>
+                        <label><input type="radio" name="q1-2" value="a"> A) 10</label>
+                        <label><input type="radio" name="q1-2" value="b"> B) 7</label>
+                        <label><input type="radio" name="q1-2" value="c"> C) 8</label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswers(1, 'b', 'c')">Validar Respuestas</button>
+                    <p class="error-msg" id="error-1"></p>
+                </div>
+
+                <div class="commitment-box hidden" id="commit-1">
+                    <label>
+                        <input type="checkbox" id="check-commit-1" onchange="desbloqueoNuevo(1)">
+                        <strong>Check de Compromiso:</strong> He leído y acepto las reglas de la cámara.
+                    </label>
+                </div>
+            </section>
+
+            <!-- Sección 2: El Oráculo de las Notas -->
+            <section id="section-2" class="level locked">
+                <h2>2. El Oráculo de las Notas</h2>
+                <div class="content-box">
+                    <p>El Oráculo revela los porcentajes de evaluación para tu travesía:</p>
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>LINEAMIENTOS DE EVALUACIÓN</th>
+                                <th>1P</th>
+                                <th>2P</th>
+                                <th>3P</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1. EVIDENCIA DE CONOCIMIENTO</td>
+                                <td>40%</td>
+                                <td>40%</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>2. EVIDENCIA DE DESEMPEÑO</td>
+                                <td>20%</td>
+                                <td>20%</td>
+                                <td>10%</td>
+                            </tr>
+                            <tr>
+                                <td>3. EVIDENCIA DE PRODUCTO</td>
+                                <td>30%</td>
+                                <td>30%</td>
+                                <td>30%</td>
+                            </tr>
+                            <tr>
+                                <td>4. PROYECTO INTEGRADOR</td>
+                                <td>10%</td>
+                                <td>10%</td>
+                                <td>50%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="questions-box">
+                    <h3>Reto del Guardián</h3>
+                    <div class="question" id="q2-1">
+                        <p>1. ¿Qué porcentaje de la calificación vale el "Proyecto Integrador" en el 3er Parcial?</p>
+                        <label><input type="radio" name="q2-1" value="a"> A) 10%</label>
+                        <label><input type="radio" name="q2-1" value="b"> B) 30%</label>
+                        <label><input type="radio" name="q2-1" value="c"> C) 50%</label>
+                    </div>
+                    <div class="question" id="q2-2">
+                        <p>2. ¿Cuánto vale la "Evidencia de Conocimiento" en el 1er Parcial?</p>
+                        <label><input type="radio" name="q2-2" value="a"> A) 40%</label>
+                        <label><input type="radio" name="q2-2" value="b"> B) 20%</label>
+                        <label><input type="radio" name="q2-2" value="c"> C) 10%</label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswers(2, 'c', 'a')">Validar Respuestas</button>
+                    <p class="error-msg" id="error-2"></p>
+                </div>
+
+                <div class="commitment-box hidden" id="commit-2">
+                    <label>
+                        <input type="checkbox" id="check-commit-2" onchange="desbloqueoNuevo(2)">
+                        <strong>Check de Compromiso:</strong> He comprendido los porcentajes del Oráculo.
+                    </label>
+                </div>
+            </section>
+
+            <!-- Sección 3: Skills a Desbloquear -->
+            <section id="section-3" class="level locked">
+                <h2>3. Skills a Desbloquear</h2>
+                <div class="content-box">
+                    <p>Estas son las habilidades que obtendrás si sobrevives:</p>
+                    <p><strong>Objetivo General:</strong> Desarrollar una aplicación web o móvil en un dispositivo
+                        móvil, el cual, tenga la capacidad de poder implementar API's para poder trabajar con diferentes
+                        recursos.</p>
+                    <p><strong>Objetivo Específico:</strong> Aprender lo básico de JavaScript para posteriormente
+                        aprender a cómo utilizar ReactNative y sus respectivas herramientas.</p>
+                </div>
+
+                <div class="questions-box">
+                    <h3>Reto del Guardián</h3>
+                    <div class="question" id="q3-1">
+                        <p>1. ¿Cuál es el objetivo específico de la materia?</p>
+                        <label><input type="radio" name="q3-1" value="a"> A) Aprender C# y .NET</label>
+                        <label><input type="radio" name="q3-1" value="b"> B) Aprender lo básico de JavaScript y
+                            posteriormente ReactNative</label>
+                        <label><input type="radio" name="q3-1" value="c"> C) Desarrollar inteligencia artificial</label>
+                    </div>
+                    <div class="question" id="q3-2">
+                        <p>2. ¿Qué capacidad debe tener la aplicación desarrollada como objetivo general?</p>
+                        <label><input type="radio" name="q3-2" value="a"> A) Funcionar sin conexión a internet</label>
+                        <label><input type="radio" name="q3-2" value="b"> B) Analizar datos masivos</label>
+                        <label><input type="radio" name="q3-2" value="c"> C) Implementar API's para trabajar con
+                            diferentes recursos</label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswers(3, 'b', 'c')">Validar Respuestas</button>
+                    <p class="error-msg" id="error-3"></p>
+                </div>
+
+                <div class="commitment-box hidden" id="commit-3">
+                    <label>
+                        <input type="checkbox" id="check-commit-3" onchange="desbloqueoNuevo(3)">
+                        <strong>Check de Compromiso:</strong> Acepto el reto de desbloquear estas skills.
+                    </label>
+                </div>
+            </section>
+
+            <!-- Sección 4: La Línea del Tiempo -->
+            <section id="section-4" class="level locked">
+                <h2>4. La Línea del Tiempo</h2>
+                <div class="content-box">
+                    <p>El tiempo avanza. Estas son las fechas en las que se decidirá tu destino:</p>
+                    <ul>
+                        <li><strong>1er Parcial:</strong> 01/06/26</li>
+                        <li><strong>2ndo Parcial:</strong> 06/07/26</li>
+                        <li><strong>3er Parcial:</strong> 10/08/26</li>
+                        <li><strong>Examen final:</strong> 17/08/26</li>
+                    </ul>
+                </div>
+
+                <div class="questions-box">
+                    <h3>Reto del Guardián</h3>
+                    <div class="question" id="q4-1">
+                        <p>1. ¿Cuándo es el 2ndo Parcial?</p>
+                        <label><input type="radio" name="q4-1" value="a"> A) 01/06/26</label>
+                        <label><input type="radio" name="q4-1" value="b"> B) 10/08/26</label>
+                        <label><input type="radio" name="q4-1" value="c"> C) 06/07/26</label>
+                    </div>
+                    <div class="question" id="q4-2">
+                        <p>2. ¿En qué fecha se realizará el Examen final?</p>
+                        <label><input type="radio" name="q4-2" value="a"> A) 17/08/26</label>
+                        <label><input type="radio" name="q4-2" value="b"> B) 10/08/26</label>
+                        <label><input type="radio" name="q4-2" value="c"> C) 06/07/26</label>
+                    </div>
+                    <button class="btn-check" onclick="checkAnswers(4, 'c', 'a')">Validar Respuestas</button>
+                    <p class="error-msg" id="error-4"></p>
+                </div>
+
+                <div class="commitment-box hidden" id="commit-4">
+                    <label>
+                        <input type="checkbox" id="check-commit-4" onchange="terminarJuego()">
+                        <strong>Check de Compromiso:</strong> He registrado estas fechas en mi mente.
+                    </label>
+                </div>
+            </section>
+
+            <!-- Victoria -->
+            <section id="section-5" class="level locked" style="text-align: center;">
+                <h2>¡Felicidades!</h2>
+                <div class="content-box">
+                    <p>Has superado todas las pruebas y estás listo para sobrevivir a la materia. ¡Mucho éxito!</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
