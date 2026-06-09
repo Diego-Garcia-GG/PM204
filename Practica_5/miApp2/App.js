@@ -16,9 +16,7 @@ export default function App() {
       <Text> -------------------------------------------- </Text>
       <Saludo></Saludo>
       <Text> -------------------------------------------- </Text>
-      <Saludo2></Saludo2>
-      <Text> -------------------------------------------- </Text>
-      <Perfil></Perfil>
+      <Perfil nombre="Diego" carrera="ISC" materia="Programación Web" cuatrimestre="9no"></Perfil>
       
       <StatusBar style="auto" />
     </View>
