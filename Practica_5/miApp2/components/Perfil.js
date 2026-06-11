@@ -1,4 +1,4 @@
-import { Text, Button, View } from "react-native";
+import { Text, Button, View, StyleSheet } from "react-native";
 import React,{ useState } from "react";
 
 /* Componente propio de perfil usando props */
@@ -15,16 +15,16 @@ import React,{ useState } from "react";
 
 /* Componente propio de perfil usando desestructuración */
 
-export const Perfil =({nombre, carrera, materia, cuatrimestre}) => {
+export const Perfil =({nombre, carrera, materia, cuatrimestre, style}) => {
     const [mostrar,setMostrar] = useState(false)
-    return( <View>
-                <Text>{nombre}</Text>
+    return( <View style={[styles.tarjeta, style]}>
+                <Text style={styles.nombre}>{nombre}</Text>
 
                 {mostrar &&
                 <>
-                    <Text>{carrera}</Text>
-                    <Text>{materia}</Text>
-                    <Text>{cuatrimestre}</Text>
+                    <Text style={styles.carrera}>{carrera}</Text>
+                    <Text style={styles.otroTexto}>{materia}</Text>
+                    <Text style={styles.otroTexto}>{cuatrimestre}</Text>
                 </>
                 }
 
@@ -32,3 +32,26 @@ export const Perfil =({nombre, carrera, materia, cuatrimestre}) => {
             </View>
     )
 }
+
+const styles= StyleSheet.create({
+    nombre:{
+        fontSize:24,
+        fontWeight:600,
+        textTransform:'uppercase',
+    },
+    tarjeta:{
+        borderWidth:2,
+        padding:15,
+        margin:10,
+    },
+    carrera:{
+        fontSize:18,
+        color:'blue',
+        fontFamily:'Robot',
+    },
+    otroTexto:{
+        fontSize:12,
+        fontFamily:'Roboto',
+        fontStyle:'Italic',
+    },
+});

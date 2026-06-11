@@ -11,12 +11,9 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-
-      <Image source={require('./assets/wave.png')}></Image> 
-      <Text> -------------------------------------------- </Text>
-      <Saludo></Saludo>
-      <Text> -------------------------------------------- </Text>
-      <Perfil nombre="Diego" carrera="ISC" materia="Programación Web" cuatrimestre="9no"></Perfil>
+      <Perfil style={styles.tarjetaVerde}nombre="Diego" carrera="ISC" materia="Programación Web" cuatrimestre="9no"></Perfil>
+      <Perfil style={styles.tarjetaRoja}nombre="Diego2" carrera="ISC" materia="Programación Web" cuatrimestre="9no"></Perfil>
+      <Perfil style={styles.tarjetaVerde}nombre="Diego3" carrera="ISC" materia="Programación Web" cuatrimestre="9no"></Perfil>
       
       <StatusBar style="auto" />
     </View>
@@ -30,5 +27,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+  },
+  tarjetaVerde:{
+    backgroundColor:'green',
+  },
+  tarjetaRoja:{
+    backgroundColor:'red',
   },
 });
