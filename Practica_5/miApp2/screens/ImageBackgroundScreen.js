@@ -1,15 +1,13 @@
-
 /* Zona1: Importaciones, componentes y archivos*/
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 /* Zona2: Main - Componentes */
-export default function ImageBackground() {
+export default function ImageBackgroundScreen() {
   return (
     <View style={styles.container}>
         <Text>Aquí va la práctica de ImageBackground y SlapshScreen</Text>
       <StatusBar style="auto" />
-
     </View>
   );
 }

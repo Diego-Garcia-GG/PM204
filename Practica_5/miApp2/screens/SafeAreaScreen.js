@@ -1,7 +1,9 @@
 /* Zona1: Importaciones, componentes y archivos*/
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context'
+import { SafeAreaView } from 'react-native'
+
+
 import { StyleSheet, Text, View, Image, TouchableOpacity, ScrollView } from 'react-native';
 
 /* Zona2: Main - Componentes */
