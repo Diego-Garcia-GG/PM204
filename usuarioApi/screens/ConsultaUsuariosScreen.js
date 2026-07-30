@@ -1,12 +1,13 @@
-import { SafeAreaView, View, Text, FlatList, StyleSheet, ActivityIndicator } from 'react-native';
+import { SafeAreaView, View, Text, FlatList, StyleSheet, ActivityIndicator, Pressable } from 'react-native';
 import { useState, useCallback } from 'react';
-import { useFocusEffect } from 'expo-router';
+import { useFocusEffect, useRouter } from 'expo-router';
 import { API_URL } from '../config';
 
 export default function ConsultaUsuariosScreen() {
   const [usuarios, setUsuarios] = useState([]);
   const [cargando, setCargando] = useState(false);
   const [refrescando, setRefrescando] = useState(false);
+  const router = useRouter();
 
   const obtenerUsuarios = async (mostrarCargando = true) => {
     if (mostrarCargando) setCargando(true);
@@ -44,6 +45,9 @@ export default function ConsultaUsuariosScreen() {
       <Text style={styles.info}>
         Edad: {item.edad} años
       </Text>
+      <Pressable onPress={() => router.push({ pathname: '/detalle', params: { id: item.id } })}>
+        <Text style={styles.linkDetalles}>Ver detalles &rarr;</Text>
+      </Pressable>
     </View>
   );
 
@@ -118,6 +122,12 @@ const styles = StyleSheet.create({
   info: {
     fontSize: 16,
     color: '#4B5563',
+  },
+  linkDetalles: {
+    color: '#2563EB',
+    textAlign: 'right',
+    marginTop: 10,
+    fontWeight: 'bold',
   },
   centro: {
     flex: 1,
